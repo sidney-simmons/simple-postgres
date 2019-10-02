@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "cec92c0f-885e-48e7-9c9f-6c99a0ebc7e4",
+		"name": "Simple Postgres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actuator: Health",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "actuator-user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator: Shutdown",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "actuator-user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8001/actuator/shutdown",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"actuator",
+						"shutdown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Lift Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numberOfTickets\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/lift-ticket/purchase-ticket",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"lift-ticket",
+						"purchase-ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Lift Ticket Failure",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numberOfTickets\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/lift-ticket/purchase-ticket-failure",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"lift-ticket",
+						"purchase-ticket-failure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchase Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8001/lift-ticket/get-purchase-details?confirmationId=cbb54a59-f9ba-4793-8f8d-0fb47b2d4618",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"lift-ticket",
+						"get-purchase-details"
+					],
+					"query": [
+						{
+							"key": "confirmationId",
+							"value": "cbb54a59-f9ba-4793-8f8d-0fb47b2d4618"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Cache Stats",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "actuator-user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8001/cache-stats/get-all-stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"cache-stats",
+						"get-all-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
