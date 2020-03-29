@@ -14,13 +14,13 @@ Clone the repository and execute the following.  The application runs on port 80
 
 ```
 // Uses the docker-compose.yml file to start the application and the database
-gradlew dockerComposeUp
+./gradlew dockerComposeUp
 
 // The application won't start successfully because the database needs to be configured
-gradlew flywayMigrate
+./gradlew flywayMigrate
 
 // Restart the application by running UP again
-gradlew dockerComposeUp
+./gradlew dockerComposeUp
 ```
 
 You can view the service logs by running the following.
