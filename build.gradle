@@ -51,13 +51,14 @@ dependencies {
 
 /** Flyway settings. */
 flyway {
-    url = "jdbc:postgresql://localhost:5432/"
+    url = props.get("postgres.url.local")
     user = props.get("postgres.user")
     password = props.get("postgres.password")
 }
 
 /** Docker settings. */
 docker {
+    environment("POSTGRES_URL", props.get("postgres.url.docker"))
     environment("POSTGRES_USER", props.get("postgres.user"))
     environment("POSTGRES_PASSWORD", props.get("postgres.password"))
 }
