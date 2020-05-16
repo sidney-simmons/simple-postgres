@@ -4,7 +4,8 @@ simple-postgres is a gradle project meant to illustrate a basic PostgreSQL backe
 
 * PostgreSQL database
 * Hibernate ORM
-* Flyway database migration
+* Manual flyway database migration via gradle
+* Automatic flyway database migration via docker container
 * Transactions and roll backs upon failure
 * Caching via Ehcache
 
@@ -13,14 +14,11 @@ simple-postgres is a gradle project meant to illustrate a basic PostgreSQL backe
 Clone the repository and execute the following.  The application runs on port 8001 and the database runs on port 5432.
 
 ```
-// Uses the docker-compose.yml file to start the application and the database
+// Uses the docker-compose.yml file to start the application, database, and flyway migration
 ./gradlew dockerComposeUp
 
-// The application won't start successfully because the database needs to be configured
-./gradlew flywayMigrate
-
-// Restart the application by running UP again
-./gradlew dockerComposeUp
+// You can also run flyway manually via gradle
+./gradlew flywayInfo
 ```
 
 You can view the service logs by running the following.
