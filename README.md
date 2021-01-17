@@ -14,10 +14,13 @@ simple-postgres is a gradle project meant to illustrate a basic PostgreSQL backe
 Clone the repository and execute the following.  The application runs on port 8001 and the database runs on port 5432.
 
 ```
-// Uses the docker-compose.yml file to start the application, database, and flyway migration
-./gradlew dockerComposeUp
+// Builds the code
+./gradlew build
 
-// You can also run flyway manually via gradle
+// Builds and deploys the docker image
+docker-compose up --build
+
+// You can also run flyway manually via gradle (although this is run automatically as a docker compose service)
 ./gradlew flywayInfo
 ```
 

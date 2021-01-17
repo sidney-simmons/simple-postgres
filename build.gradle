@@ -14,7 +14,6 @@ plugins {
     id "io.spring.dependency-management" version "1.0.9.RELEASE"
     id "java"
     id "org.flywaydb.flyway" version "6.0.0-beta2"
-    id "com.sidneysimmons.gradle-plugin-docker" version "0.0.6"
     id "com.sidneysimmons.gradle-plugin-external-properties" version "2.0.0"
 }
 
@@ -55,14 +54,3 @@ flyway {
     user = props.get("postgres.user")
     password = props.get("postgres.password")
 }
-
-/** Docker settings. */
-docker {
-    environment("POSTGRES_URL", props.get("postgres.url.docker"))
-    environment("POSTGRES_USER", props.get("postgres.user"))
-    environment("POSTGRES_PASSWORD", props.get("postgres.password"))
-}
-
-/** Task dependencies. */
-dockerComposeUp.dependsOn dockerComposeBuild
-dockerComposeBuild.dependsOn build
